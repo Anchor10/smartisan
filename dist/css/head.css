@@ -1,0 +1,105 @@
+* {
+  margin: 0;
+  padding: 0; }
+
+.clear:after {
+  content: ".";
+  clear: both;
+  display: block;
+  height: 0;
+  overflow: hidden;
+  visibility: hidden; }
+
+.clear {
+  zoom: 1; }
+
+body {
+  font-size: 14px;
+  color: #666; }
+
+li {
+  list-style: none; }
+
+a {
+  text-decoration: none;
+  display: block; }
+
+.header {
+  height: 100px;
+  background: #000; }
+
+.header .container {
+  /* width:1220px; */
+  height: 75px;
+  margin: 0 auto;
+  width: 1220px;
+  position: relative; }
+
+.header .container .nav_logo {
+  width: 50px;
+  height: 75px;
+  float: left;
+  padding-top: 25px; }
+
+.header .container .nav_logo a {
+  width: 50px;
+  height: 50px;
+  background: url(../images/logo.png) no-repeat;
+  background-size: cover;
+  display: block; }
+
+.header .container .nav_list {
+  float: right;
+  line-height: 28px;
+  margin: 36px 181px 0 0; }
+
+.header .container .nav_list li {
+  float: right;
+  padding: 0 25px; }
+
+.header .container .nav_list li a {
+  color: #c8c8c8; }
+
+.header .container .nav_list li:hover a {
+  color: #fff; }
+
+.header .container .nav_aside {
+  position: absolute;
+  top: 38px;
+  right: 0;
+  width: 109px;
+  height: 20px;
+  border-left: 1px solid #666;
+  padding-left: 50px; }
+
+.header .container .nav_aside li {
+  float: left; }
+
+.header .container .nav_aside li:nth-of-type(1) a {
+  width: 36px;
+  height: 20px;
+  background: url(../images/aside.png) -58px 0px no-repeat; }
+
+.header .container .nav_aside li:nth-of-type(1) a:hover {
+  background: url(../images/aside.png) 2px 0px no-repeat; }
+
+.header .container .nav_aside li:nth-of-type(2) a {
+  width: 61px;
+  height: 20px;
+  background: url(../images/aside.png) -58px -20px no-repeat;
+  position: relative; }
+
+.header .container .nav_aside li:nth-of-type(2) a:hover {
+  background: url(../images/aside.png) 2px -20px no-repeat; }
+
+.header .container .nav_aside li:nth-of-type(2) a span {
+  display: block;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #9c9c9c;
+  position: absolute;
+  right: 5px;
+  text-align: center;
+  line-height: 20px;
+  color: white; }

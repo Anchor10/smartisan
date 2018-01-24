@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		#q{width: 300px;height: 30px;padding: 5px;border: 1px solid #f90;font-size: 16px;}
+		#ul1{border:1px solid #f90;width: 310px;margin: 0;padding:0;display: none;}
+		#ul1 li{list-style: none;}
+		#ul1 li a{line-height: 30px;padding:5px;text-align: none;color:black;display: block;}
+		#ul1 li a:hover{background: #f90;color:white;}
+	</style>
+	<script type="text/javascript">
+		function func(data){
+			var oUl = document.getElementById("ul1");
+			var html = '';
+			if(data.s.length){
+				oUl.style.display = "block";
+				//通过for循环添加数据
+				for(var i = 0; i <data.s.length; i++){
+					html += "<li><a>" + data.s[i] +"</a></li>"
+				}
+				oUl.innerHTML = html;
+			}else{
+				oUl.style.display = "none";
+			}
+		}
+		window.onload = function(){
+			var oQ = document.getElementById("q");
+			var oUl = document.getElementById("ul1");
+			oQ.onkeyup = function(){
+				if(this.value != ""){
+					var oScript = document.createElement("script");
+					oScript.src = "http://suggestion.baidu.com/su?wd=" + this.value + "&cb=func";
+					document.body.appendChild(oScript);
+				}else{
+					oUl.style.display = "none";
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<input type="text" id="q">
+	<ul id="ul1">
+		<li></li>
+		<li></li>
+	</ul>
+</body>
+</html>

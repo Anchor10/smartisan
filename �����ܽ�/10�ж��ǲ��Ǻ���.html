@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+		function composite(num){
+			var isYes = false;
+			for(var i = 2; i < num; i++){
+				if(num % i == 0){
+					isYes = true;
+					break;
+				}
+			}
+			return isYes;
+		}
+		alert(composite(5));
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
