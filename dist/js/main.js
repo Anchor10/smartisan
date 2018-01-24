@@ -10,7 +10,8 @@ require.config({
 		"jquery-cookie": "jquery.cookie",
 		"index": "index",
 
-		"parabola": "parabola"
+		"parabola": "parabola",
+		"shoppingDetail":"shoppingDetail"
 	},
 	shim: {
 		/*
