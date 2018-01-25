@@ -8,10 +8,13 @@
 */
 define(["ballMove", "jquery", "jquery-cookie"], function(ballMove, $){
 	var main = function(){
+
 		//主页代码写在这里
 
 		
 		$(function(){
+			//加载一次商品数量
+			sc_car();
 			//手机选项卡
 			$("#phone").mouseenter(function(){
 				$(".phone_show").stop().animate({opacity:1,height:350}, 300);
@@ -39,11 +42,22 @@ define(["ballMove", "jquery", "jquery-cookie"], function(ballMove, $){
 				$(".phone_show").stop().animate({opacity:0,height:0}, 300);
 				$(".phone_show").html("");
 			})
+            // 滚动出现顶部导航栏
+            $(window).scroll(function(){
+            	if($(window).scrollTop() > 150){
+            		$(".nav_sub").css("position","fixed").css("top",0).css("left",20).css("zIndex",1000).css("border","1px solid #EDEDED");
+            		$("#shopCart").css("position","fixed").css("top",35).css("right",60).css("zIndex",1001);
+
+
+            	}else{
+            		$(".nav_sub").css("position","relative").css("border",0);
+            		$("#shopCart").css("position","relative").css("top",0).css("right",0);
+            	}
+            })
 
 
 
-
-			sc_car();
+			
 			//<1>下载商品列表
 			$.ajax({
 				url: "../data/newshow.json",
@@ -66,21 +80,26 @@ define(["ballMove", "jquery", "jquery-cookie"], function(ballMove, $){
 					var html = "";
 					html +=`<h5>商品列表</h5>`
 					for(var i = 0; i < res.length; i++){
-						html += `<a href=""><h5 class="tocart">查看详情</h5><h6 class="detail">加入购物车</h6><img src="${res[i].img}"/><h4>${res[i].title}</h4><span>${res[i].decri}</span><p>${res[i].price}</p></a>`
+						html += `<a href=""><h5 class="detail">查看详情</h5><h6 class="tocart" id="${res[i].id}">加入购物车</h6><img src="${res[i].img}"/><h4>${res[i].title}</h4><span>${res[i].decri}</span><p>${res[i].price}</p></a>`
 					}
 					$(".goods").html(html);
 					
 				}
 			})
-			$(".goods a").mouseover(function(){
+			/*$(".goods").on("click",".tocart",function(){
+				//去除当前商品对应的id;
+				var id = this.id;
+				alert(this.id);
 				// $(".goods a").filter("h5").css("display":"block");
+				return false;
 
-			})
+			})*/
 			
 			//<2>给购物车按钮添加点击事件
 			//【注】当我们想要去找按钮的时候，这些按钮还没有加载出来
 			//【注】直接通过事件委托的方式添加事件，添加事件给父级
-			$(".goods a .tocart").click(function(){
+			$(".goods").on("click",".tocart",function(){
+				// alert(this.id);
 
 				//进行抛物线运动
 				ballMove.ballMove(this);
@@ -144,9 +163,10 @@ define(["ballMove", "jquery", "jquery-cookie"], function(ballMove, $){
 						sum += arr[i].num;
 					}
 
-					$(".sc_num").html(sum);
+					$(".cart").html(sum).css("backgroundColor","#E86C62");
+
 				}else{
-					$(".sc_num").html(0);
+					$(".cart").html(0);
 				}
 			}
 
@@ -157,13 +177,23 @@ define(["ballMove", "jquery", "jquery-cookie"], function(ballMove, $){
 				mouseenter/移入 mouseleave/移出
 				【注】每次使用animate之前，最好前面调用一次stop
 			*/
-			$(".cart").mouseenter(function(){
+			$("#shopCart").mouseenter(function(){
 				sc_msg();
-				$(this).stop().animate({right: 0});
+				$("#show_Cart").css("display","block");
+				/*var html = "";
+				if($(".cart").html() == "0"){
+					html = `<img src="../images/cart-empty.01f4c99a9df22275a7d374be0195adc7.png">`;
+				}else{
+					for()
+					aLis = ``;
+				}*/
+				
+					
+				// $(this).stop().animate({right: 0});
 			});
 
-			$(".cart").mouseleave(function(){
-				$(this).stop().animate({right: -270});
+			$("#shopCart").mouseleave(function(){
+				$("#show_Cart").css("display","none");
 			});
 
 
@@ -185,7 +215,7 @@ define(["ballMove", "jquery", "jquery-cookie"], function(ballMove, $){
 						var html = '';
 						for(var i = 0; i < arr.length; i++){
 							//用id当做下标取出数据
-							html += `<li>
+							/*html += `<li>
 										<div class = "sc_goodsPic">
 											<img src="${res[arr[i].id].img}" alt="">
 										</div>
@@ -196,9 +226,19 @@ define(["ballMove", "jquery", "jquery-cookie"], function(ballMove, $){
 										<div class = "sc_goodsNum">
 											商品数量:${arr[i].num}
 										</div>
-									</li>`		
+									</li>`*/	
+							html += `<li>
+								<div class="pic_gs">
+									<img src="${res[arr[i].id].img}">
+								</div>
+								<div class="deta">
+									<h4>${res[arr[i].id].title}</h4>
+									<p>${res[arr[i].id].decri}</p>
+									<span>￥ ${res[arr[i].id].price}</span><span>* ${arr[i].num}</span>
+								</div>
+							</li>`			
 						}
-						$(".cart ul").html(html);
+						$("#show_Cart").html(html);
 					}	
 				})
 			}

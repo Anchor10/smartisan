@@ -58,7 +58,23 @@ span {
   margin-bottom: 15px;
   border-radius: 10px;
   overflow: hidden;
-  opacity: 0.7; }
+  opacity: 0.7;
+  position: relative; }
+
+.table .regis .input p {
+  position: absolute;
+  background: #D16D62;
+  height: 30px;
+  line-height: 30px;
+  border-radius: 5px;
+  padding: 0 5px;
+  top: 8px;
+  right: 0;
+  color: white;
+  display: none; }
+
+.table .regis .input .check_error {
+  right: 160px; }
 
 .table .regis .input:hover {
   opacity: 1; }

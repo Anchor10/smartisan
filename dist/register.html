@@ -1,47 +1,52 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Document</title>
-	<link rel="stylesheet" href="css/register.min.css">
-</head>
-<body>
-	<div class="table">
-		<h4 class="title">注册 Smartisan ID</h4>
-		<div class="regis">
-			<ul>
-				<li class="input clear">
-					<span class="i1"></span>
-					<span class="area_code">+86</span>
-					<input type="text" name="" placeholder="手机号">
-					<span class="area">中国</span>
-				</li>
-				<li class="input clear">
-					<span class="i2"></span>
-					<input type="" name="" placeholder="短信验证码">
-					<span class="check">获取验证码</span>
-				</li>
-				<li class="input clear">
-					<span class="i3"></span>
-					<input type="password" name="" placeholder="密码">
-				</li>
-				<li class="input clear">
-					<span class="i4"></span>
-					<input type="password" name="" placeholder="重复密码">
-				</li>
-			</ul>
-		
-			<p class="agree">
-				<span></span>
-				我已阅读并同意遵守<a href="">法律声明</a>和<a href="">隐私条款</a>
-			</p>
-			<h3>注册</h3>
-			<a href="" class="have">如果您已拥有 Smartisan ID，则可在此<span>登录</span></a>
+	<head>
+		<meta charset="UTF-8">
+		<title>注册</title>
+		<link rel="stylesheet" href="css/register.min.css">
+		<script type = "text/javascript" src = "js/require.js" async = "true" defer data-main = "js/main"></script>
+	</head>
+	<body>
+		<div class="table">
+			<h4 class="title">注册 Smartisan ID</h4>
+			<div class="regis">
+				<ul>
+					<li class="input clear input1">
+						<span class="i1"></span>
+						<span class="area_code">+86</span>
+						<input type="text" name="" placeholder="手机号" id="phone_num">
+						<span class="area">中国</span>
+						<p class="phone_error">手机号码格式错误</p>
+					</li>
+					<li class="input clear input2">
+						<span class="i2"></span>
+						<input type="" name="" placeholder="短信验证码">
+						<span class="check">获取验证码</span>
+						<p class="check_error">验证码错误</p>
+					</li>
+					<li class="input clear">
+						<span class="i3"></span>
+						<input type="password" name="" placeholder="密码" id="password">
+						<p class="password_error">密码格式错误</p>
+					</li>
+					<li class="input clear">
+						<span class="i4"></span>
+						<input type="password" name="" placeholder="重复密码" id="diff">
+						<p class="diff">两次密码不一致</p>
+					</li>
+				</ul>
+			
+				<p class="agree">
+					<span></span>
+					我已阅读并同意遵守<a href="">法律声明</a>和<a href="">隐私条款</a>
+				</p>
+				<h3>注册</h3>
+				<a href="login.html" class="have">如果您已拥有 Smartisan ID，则可在此<span>登录</span></a>
+			</div>
 		</div>
-	</div>
-	<div class="bottom">
-		<p class="copyright">Copyright © 2017, Smartisan Digital Co., Ltd. All Rights Reserved.北京锤子数码科技有限公司&ensp;<a href="">法律声明</a><a href="">隐私条款</a></p>
-		<a href="" class="icp">京ICP备14041720号-1京ICP证140622号京公网安备11010502025474</a>
-	</div>
-</body>
+		<div class="bottom">
+			<p class="copyright">Copyright © 2017, Smartisan Digital Co., Ltd. All Rights Reserved.北京锤子数码科技有限公司&ensp;<a href="">法律声明</a><a href="">隐私条款</a></p>
+			<a href="" class="icp">京ICP备14041720号-1京ICP证140622号京公网安备11010502025474</a>
+		</div>
+	</body>
 </html>

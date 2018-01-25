@@ -9,9 +9,9 @@ require.config({
 		"jquery": "jquery-1.11.3", //遵从AMD规范
 		"jquery-cookie": "jquery.cookie",
 		"index": "index",
+		"shoppingList":"shoppingList",
 
-		"parabola": "parabola",
-		"shoppingDetail":"shoppingDetail"
+		"parabola": "parabola"
 	},
 	shim: {
 		/*
@@ -38,6 +38,15 @@ require(["index"], function(index){
 //调用slide.js 中的 slide函数
 require(["fade"], function(fade){
 	console.log(fade.fade());
+})
+require(["register"],function(register){
+	console.log(register.register());
+})
+require(["goodsDetail"],function(goodsDetail){
+	console.log(goodsDetail.goodsDetail());
+})
+require(["shoppingList"],function(shoppingList){
+	console.log(shoppingList.shoppingList());
 })
 
 

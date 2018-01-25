@@ -10,8 +10,8 @@ define(["jquery", "parabola"], function($){
 			top: $(node).offset().top
 		})
 
-		var offsetX = $(".sc_pic").offset().left - $("#ball").offset().left;
-		var offsetY = $(".sc_pic").offset().top - $("#ball").offset().top;
+		var offsetX = $(".cart").offset().left - $("#ball").offset().left;
+		var offsetY = $(".cart").offset().top - $("#ball").offset().top;
 
 		//【注】配置参数
 		var bool = new Parabola({
@@ -19,7 +19,7 @@ define(["jquery", "parabola"], function($){
 			targetEl: null,
 			offset: [offsetX, offsetY],
 			curvature: 0.0002,
-			duration: 400,
+			duration: 500,
 			callback: function(){
 				$("#ball").css("display", "none");
 			}
