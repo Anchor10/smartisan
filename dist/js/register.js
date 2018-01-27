@@ -26,9 +26,12 @@ define(["jquery", "jquery-cookie"], function($){
 					$(".diff").css("display","none");
 				}
 			})
+			/*$(".regis").on("focus",".input",function(){
+				$(this).css("opacity",1).css("boxShadow","1px 1px 10px #ccc");
+			})*/
 
 
-	})
+		})
 	}
 	
 	

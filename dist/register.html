@@ -9,12 +9,12 @@
 	<body>
 		<div class="table">
 			<h4 class="title">注册 Smartisan ID</h4>
-			<div class="regis">
+			<form class="regis" action="insertusers.php" method="post">
 				<ul>
 					<li class="input clear input1">
 						<span class="i1"></span>
 						<span class="area_code">+86</span>
-						<input type="text" name="" placeholder="手机号" id="phone_num">
+						<input type="text" name="phone" placeholder="手机号" id="phone_num">
 						<span class="area">中国</span>
 						<p class="phone_error">手机号码格式错误</p>
 					</li>
@@ -26,7 +26,7 @@
 					</li>
 					<li class="input clear">
 						<span class="i3"></span>
-						<input type="password" name="" placeholder="密码" id="password">
+						<input type="password" name="password" placeholder="密码" id="password">
 						<p class="password_error">密码格式错误</p>
 					</li>
 					<li class="input clear">
@@ -40,9 +40,9 @@
 					<span></span>
 					我已阅读并同意遵守<a href="">法律声明</a>和<a href="">隐私条款</a>
 				</p>
-				<h3>注册</h3>
+				<input type="submit" value="注册" class="registering">
 				<a href="login.html" class="have">如果您已拥有 Smartisan ID，则可在此<span>登录</span></a>
-			</div>
+			</form>
 		</div>
 		<div class="bottom">
 			<p class="copyright">Copyright © 2017, Smartisan Digital Co., Ltd. All Rights Reserved.北京锤子数码科技有限公司&ensp;<a href="">法律声明</a><a href="">隐私条款</a></p>

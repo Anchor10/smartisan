@@ -16,10 +16,19 @@ a{
 	text-decoration:none;
 	display:block;
 }
+.addSub{
+	cursor:pointer;
+	box-shadow:1px 1px 1px 1px #ccc;
+}
+.addSub:hover{
+	background:#c1c1c1;
+	box-shadow:1px 1px 2px 2px #ccc;
+	
+}
 .shopCart{
 	width:1220px;
 	margin:30px auto;
-	min-height:588px;
+
 	border-radius:10px;
 	border:1px solid #DBDBDB;
 	overflow:hidden;

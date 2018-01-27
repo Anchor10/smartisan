@@ -25,13 +25,14 @@ a{
 
 	position: absolute;
 	display: none;
-	z-index:100;
+	z-index:10002;
+	opacity:0.5;
 }
 #shopCart a{
 	transition:0;
 }
 .nav_sub{ 
-	padding:31px 0 0;
+	padding:20px 0;
 	width:1220px;
 	height:28px;
 	margin:0 auto;

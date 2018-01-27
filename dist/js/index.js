@@ -1,21 +1,9 @@
-/*
-	编写主页的代码
-	在这里编写代码都必须遵从AMD规范
-*/
-
-/*
-	注意：引入jq去进行开发
-*/
 define(["ballMove", "jquery", "jquery-cookie"], function(ballMove, $){
 	var main = function(){
-
-		//主页代码写在这里
-
-		
 		$(function(){
 			//加载一次商品数量
 			sc_car();
-			//手机选项卡
+			//手机选项卡-------------------------------------------------------
 			$("#phone").mouseenter(function(){
 				$(".phone_show").stop().animate({opacity:1,height:350}, 300);
 				$.ajax({
@@ -42,7 +30,7 @@ define(["ballMove", "jquery", "jquery-cookie"], function(ballMove, $){
 				$(".phone_show").stop().animate({opacity:0,height:0}, 300);
 				$(".phone_show").html("");
 			})
-            // 滚动出现顶部导航栏
+            // 滚动出现顶部导航栏------------------------------------------------
             $(window).scroll(function(){
             	if($(window).scrollTop() > 150){
             		$(".nav_sub").css("position","fixed").css("top",0).css("left",20).css("zIndex",1000).css("border","1px solid #EDEDED");
@@ -58,7 +46,7 @@ define(["ballMove", "jquery", "jquery-cookie"], function(ballMove, $){
 
 
 			
-			//<1>下载商品列表
+			//<1>下载商品列表-------------------------------------------------------
 			$.ajax({
 				url: "../data/newshow.json",
 				type: "GET",
@@ -80,30 +68,19 @@ define(["ballMove", "jquery", "jquery-cookie"], function(ballMove, $){
 					var html = "";
 					html +=`<h5>商品列表</h5>`
 					for(var i = 0; i < res.length; i++){
-						html += `<a href=""><h5 class="detail">查看详情</h5><h6 class="tocart" id="${res[i].id}">加入购物车</h6><img src="${res[i].img}"/><h4>${res[i].title}</h4><span>${res[i].decri}</span><p>${res[i].price}</p></a>`
+						html += `<a href="goodsdetail.html?id=${res[i].id}"><h5 class="detail">查看详情</h5><h6 class="tocart" id="${res[i].id}">加入购物车</h6><img src="${res[i].img}"/><h4>${res[i].title}</h4><span>${res[i].decri}</span><p>${res[i].price}</p></a>`
 					}
 					$(".goods").html(html);
 					
 				}
 			})
-			/*$(".goods").on("click",".tocart",function(){
-				//去除当前商品对应的id;
-				var id = this.id;
-				alert(this.id);
-				// $(".goods a").filter("h5").css("display":"block");
-				return false;
-
-			})*/
 			
-			//<2>给购物车按钮添加点击事件
+			//<2>给购物车按钮添加点击事件----------------------------------------------
 			//【注】当我们想要去找按钮的时候，这些按钮还没有加载出来
 			//【注】直接通过事件委托的方式添加事件，添加事件给父级
 			$(".goods").on("click",".tocart",function(){
-				// alert(this.id);
-
 				//进行抛物线运动
 				ballMove.ballMove(this);
-
 
 				//a:取出当前按钮对应的商品的id
 				var id = this.id;
@@ -146,14 +123,14 @@ define(["ballMove", "jquery", "jquery-cookie"], function(ballMove, $){
 						});
 					}
 				}
-				// alert($.cookie("goods"));
+
 				sc_car();
 				//为了阻止冒泡
 				return false;
 			})
 
 
-			//<3>计算购物车数字
+			//<3>计算购物车数字--------------------------------------------------
 			function sc_car(){
 				var sc_str = $.cookie("goods");
 				if(sc_str){ //如果cookie存在
@@ -171,29 +148,16 @@ define(["ballMove", "jquery", "jquery-cookie"], function(ballMove, $){
 			}
 
 
-			//<4>添加移入移出事件
-			/*
-				mouseover mouseout
-				mouseenter/移入 mouseleave/移出
-				【注】每次使用animate之前，最好前面调用一次stop
-			*/
+			//<4>给购物车添加移入移出事件----------------------------------------------
 			$("#shopCart").mouseenter(function(){
 				sc_msg();
 				$("#show_Cart").css("display","block");
-				/*var html = "";
-				if($(".cart").html() == "0"){
-					html = `<img src="../images/cart-empty.01f4c99a9df22275a7d374be0195adc7.png">`;
-				}else{
-					for()
-					aLis = ``;
-				}*/
-				
-					
-				// $(this).stop().animate({right: 0});
+				$("#show_Cart").stop().animate({opacity: 1},100);
 			});
 
 			$("#shopCart").mouseleave(function(){
 				$("#show_Cart").css("display","none");
+				$("#show_Cart").stop().animate({opacity: 0},100);
 			});
 
 
