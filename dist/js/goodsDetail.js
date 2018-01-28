@@ -1,13 +1,22 @@
 define(["jquery","jquery-cookie"], function($){
 	var goodsDetail = function(){ 
 		$(function(){
+			//获取查询字符串的id的值
+			var str = window.location.search;
+			//去掉？
+			var currentId = str.substring(1);
+			//找到=的位置
+			var n = currentId.indexOf("=");
+			//提取等号后面的id值
+			var ID = currentId.substring(n+1);
+			// alert(ID);
+
+			// var ID = currentId.substring(3);
 			$.ajax({
 				url: "data/goods.json",
 				type: "GET",
 				success: function(res){
-					var currentId = window.location.href;
-					// alert(currentId);
-					var ID = currentId.substring(42);
+					
 					//ID存在是才执行以下操作
 					if(res[ID]){
 						var html = `
