@@ -17,15 +17,47 @@ a{
 	display:block;
 	
 }
+#content {
+    position: relative;
+    height: 100px;
+    width: 400px;
+    border-radius: 5px;
+    background: #fff;
+    color: red;
+    font-weight:800;
+    z-index:10000;
+    position:fixed;
+    border:1px solid #ccc;
+    left:50%;
+    margin-left:-200px;
+    top:100px;
+    text-align:center;
+    font-size:20px;
+    padding:50px 0;
+}
+
+#content #ok {
+    position: absolute;
+    height: 40px;
+    width: 80px;
+    line-height:40px;
+    bottom: 40px;
+    left: 150px;
+    background: blue;
+    text-align: center;
+    border-radius:5px;
+}
+
+
 #ball{
 	width: 20px;
 	height: 20px;
 	border-radius:50%;
-	background: gray;
+	background: #ccc;
 
 	position: absolute;
 	display: none;
-	z-index:10002;
+	z-index:100002;
 	opacity:0.5;
 }
 #shopCart a{

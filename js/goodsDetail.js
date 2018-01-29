@@ -1,5 +1,20 @@
-define(["jquery","jquery-cookie"], function($){
+define(["ballMove","jquery","jquery-cookie"], function(ballMove,$){
 	var goodsDetail = function(){ 
+		function sc_car(){
+			var sc_str = $.cookie("goods");
+			if(sc_str){ //如果cookie存在
+				var arr = eval(sc_str);
+				var sum = 0; //用于累加的和
+				for(var i in arr){
+					sum += arr[i].num;
+				}
+
+				$(".cart").html(sum).css("backgroundColor","#E86C62");
+
+			}else{
+				$(".cart").html(0);
+			}
+		}
 		$(function(){
 			//获取查询字符串的id的值
 			var str = window.location.search;
@@ -53,12 +68,12 @@ define(["jquery","jquery-cookie"], function($){
 								
 								<div class="numOfGoods clear">
 									<p>数量</p>
-									<span>-</span>
+									<span class="addSub">-</span>
 									<p class="num">1</p>
-									<span>+</span>
+									<span class="addSub">+</span>
 								</div>
 								<div class="clear">
-									<div class="cart">加入购物车</div>
+									<div class="tocart">加入购物车</div>
 									<div class="buyNow">现在购买</div>
 								</div>
 							</div>`;
@@ -82,6 +97,80 @@ define(["jquery","jquery-cookie"], function($){
 
 				}
 			})
+
+			//数量增减按钮的实现:
+			$(".goods_detail").on("click",".addSub",function(){
+
+				switch($(this).html()){
+					case "+":
+						$(".num").html(parseInt($(".num").html())+1);
+						break;
+					case "-":
+						if($(".num").html()>1){
+							$(".num").html(parseInt($(".num").html())-1);
+						}
+						break;
+					default:
+						break;
+				}
+			})
+
+
+			//加入购物车按钮的实现:
+			$(".goods_detail").on("click",".tocart",function(){
+				// alert(1);
+				//进行抛物线运动
+				ballMove.ballMove(this);
+
+				//b:判断是否是第一次添加该商品
+				var first = $.cookie("goods") == null ? true : false;
+
+				if(first){ //第一次添加
+					//设置cookie  [{id:id,num:1}]
+					$.cookie("goods", "[{id:" + ID + ",num:"+$(".num").html()+"}]", {
+						expires: 7
+					});
+				}else{
+					//c:判断之前是否有添加过该商品
+					var str = $.cookie("goods");
+					var arr = eval(str);
+					var same = false; //代表是否有相同商品
+
+
+					//b:遍历所有的对象，判断id是否有相同的，如果有num++
+					for(var i in arr){
+						if(arr[i].id == ID){
+							arr[i].num += parseInt($(".num").html());
+
+							var cookieStr = JSON.stringify(arr);
+							$.cookie("goods", cookieStr, {
+								expires: 7
+							})
+							same = true;
+							break;
+						}
+					}
+
+					//e:是否有相同的商品 新增商品 数量是1
+					if(!same){
+						// alert(1);
+						var obj = {id: ID, num: parseInt($(".num").html())};
+						arr.push(obj);
+						var cookieStr = JSON.stringify(arr);
+						$.cookie("goods", cookieStr, {
+							expires: 7
+						});
+					}
+				}
+
+				sc_car();
+				//为了阻止冒泡
+				return false;
+			})
+
+
+
+
 			//点击切换
 			$(".goods_detail").on("click",".li1",function(){
 				$(".goods_detail li").css("boxShadow","");

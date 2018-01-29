@@ -19,12 +19,9 @@ define(["ballMove", "jquery", "jquery-cookie"], function(ballMove, $){
 										<span>${res[i].price}</span>
 									</a>`
 						}
-						$(".phone_show").html(html);
-						
+						$(".phone_show").html(html);						
 					}
-				})
-
-				
+				})	
 			})
 			$("#phone").mouseleave(function(){
 				$(".phone_show").stop().animate({opacity:0,height:0}, 300);
@@ -32,7 +29,7 @@ define(["ballMove", "jquery", "jquery-cookie"], function(ballMove, $){
 			})
             // 滚动出现顶部导航栏------------------------------------------------
             $(window).scroll(function(){
-            	if($(window).scrollTop() > 150){
+            	if($(window).scrollTop() > 70){
             		$(".nav_sub").css("position","fixed").css("top",0).css("left",20).css("zIndex",1000).css("border","1px solid #EDEDED");
             		$("#shopCart").css("position","fixed").css("top",35).css("right",60).css("zIndex",1001);
 
@@ -42,8 +39,6 @@ define(["ballMove", "jquery", "jquery-cookie"], function(ballMove, $){
             		$("#shopCart").css("position","relative").css("top",0).css("right",0);
             	}
             })
-
-
 
 			
 			//<1>下载商品列表-------------------------------------------------------
@@ -56,8 +51,7 @@ define(["ballMove", "jquery", "jquery-cookie"], function(ballMove, $){
 					for(var i = 0; i < res.length; i++){
 						html += `<a href=""><img src="${res[i].img}"/></a>`
 					}
-					$(".newshow").html(html);
-					
+					$(".newshow").html(html);					
 				}
 			})
 
@@ -70,15 +64,33 @@ define(["ballMove", "jquery", "jquery-cookie"], function(ballMove, $){
 					for(var i = 0; i < res.length; i++){
 						html += `<a href="goodsdetail.html?id=${res[i].id}"><h5 class="detail">查看详情</h5><h6 class="tocart" id="${res[i].id}">加入购物车</h6><img src="${res[i].img}"/><h4>${res[i].title}</h4><span>${res[i].decri}</span><p>${res[i].price}</p></a>`
 					}
-					$(".goods").html(html);
-					
+					$(".goods").html(html);					
 				}
 			})
 			
+			//单例设计模式显示提示框--------------------------------------------
+			var singleton = (function(){
+					var oDiv = null;
+					var createDiv = function(){
+						// alert(2);
+						if(!oDiv){
+							// alert(1);
+							oDiv = $("<div></div>").attr("id","content").html("该商品已成功添加到购物车").appendTo($("body"));
+							$("<div></div>").attr("id","ok").html("确定").appendTo($("#content"));
+						}
+						$("#ok").click(function(){
+							$("#content").remove();
+							oDiv = null;
+						})
+					}
+					return createDiv;
+				})();
 			//<2>给购物车按钮添加点击事件----------------------------------------------
 			//【注】当我们想要去找按钮的时候，这些按钮还没有加载出来
 			//【注】直接通过事件委托的方式添加事件，添加事件给父级
 			$(".goods").on("click",".tocart",function(){
+				singleton();				
+
 				//进行抛物线运动
 				ballMove.ballMove(this);
 
@@ -97,7 +109,6 @@ define(["ballMove", "jquery", "jquery-cookie"], function(ballMove, $){
 					var str = $.cookie("goods");
 					var arr = eval(str);
 					var same = false; //代表是否有相同商品
-
 
 					//b:遍历所有的对象，判断id是否有相同的，如果有num++
 					for(var i in arr){
@@ -123,7 +134,6 @@ define(["ballMove", "jquery", "jquery-cookie"], function(ballMove, $){
 						});
 					}
 				}
-
 				sc_car();
 				//为了阻止冒泡
 				return false;
@@ -160,7 +170,6 @@ define(["ballMove", "jquery", "jquery-cookie"], function(ballMove, $){
 				$("#show_Cart").stop().animate({opacity: 0},100);
 			});
 
-
 			//<5>加载购物车中商品
 			function sc_msg(){
 				$.ajax({
@@ -178,19 +187,7 @@ define(["ballMove", "jquery", "jquery-cookie"], function(ballMove, $){
 						var arr = eval($.cookie("goods"));
 						var html = '';
 						for(var i = 0; i < arr.length; i++){
-							//用id当做下标取出数据
-							/*html += `<li>
-										<div class = "sc_goodsPic">
-											<img src="${res[arr[i].id].img}" alt="">
-										</div>
-										<div class = "sc_goodsTitle">
-											<p>这是商品饼干</p>
-										</div>
-										<div class = "sc_goodsBtn">购买</div>
-										<div class = "sc_goodsNum">
-											商品数量:${arr[i].num}
-										</div>
-									</li>`*/	
+							//用id当做下标取出数据	
 							html += `<li>
 								<div class="pic_gs">
 									<img src="${res[arr[i].id].img}">
@@ -206,16 +203,6 @@ define(["ballMove", "jquery", "jquery-cookie"], function(ballMove, $){
 					}	
 				})
 			}
-
-			//编写清空购物车的功能
-			$(".goods_clear").click(function(){
-				//a:清除cookie的缓存
-				$.cookie("goods", null);
-				sc_car();
-			})
-
-
-
 		})
 
 		return "我是mian函数";
