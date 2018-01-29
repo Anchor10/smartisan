@@ -1,0 +1,152 @@
+* {
+  margin: 0;
+  padding: 0; }
+
+.clear:after {
+  content: ".";
+  clear: both;
+  display: block;
+  height: 0;
+  overflow: hidden;
+  visibility: hidden; }
+
+.clear {
+  zoom: 1; }
+
+body {
+  font-size: 14px;
+  color: #666;
+  background: url(../images/register/bg_9b9dcb65ff.png) repeat; }
+
+li {
+  list-style: none; }
+
+a {
+  text-decoration: none;
+  display: block; }
+
+span {
+  display: block; }
+
+.login {
+  width: 450px;
+  height: 533px;
+  border: 1px solid #ccc;
+  margin: 80px auto;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 1px 5px 2px 2px #ccc;
+  text-align: center;
+  background: url(../images/login/dialog-radius-top-bg_f21c89014d1.png);
+  background-size: 100%; }
+  .login .title {
+    width: 450px;
+    height: 92px;
+    padding-top: 75px;
+    background: url(../images/login/smartisan_4ada7fecea.png) 148px 18px no-repeat; }
+    .login .title p {
+      margin-top: 88px;
+      font-size: 20px;
+      color: #000; }
+  .login ul {
+    margin-top: 65px; }
+    .login ul .input {
+      width: 370px;
+      height: 46px;
+      border: 1px solid #ccc;
+      margin: 0 auto;
+      margin-bottom: 15px;
+      border-radius: 10px;
+      overflow: hidden;
+      opacity: 0.7; }
+      .login ul .input:hover {
+        opacity: 1; }
+      .login ul .input span {
+        display: block;
+        width: 46px;
+        height: 46px;
+        float: left;
+        border: 1px solid #ccc; }
+      .login ul .input .i1 {
+        background: url(../images/register/dialog-input-icons_e7e327a2b8.png) 0px 0px no-repeat; }
+      .login ul .input .i2 {
+        background: url(../images/register/dialog-input-icons_e7e327a2b8.png) -48px 0px no-repeat; }
+      .login ul .input input {
+        float: left;
+        display: block;
+        height: 46px;
+        border: none;
+        font-size: 16px;
+        text-indent: 10px;
+        outline: none;
+        width: 320px; }
+  .login p {
+    font-size: 10px;
+    width: 370px;
+    margin: 0 auto; }
+    .login p span {
+      padding-left: 20px;
+      height: 20px;
+      background: url(../images/login/checkbox_f49f6e4acf1.png) 0px -20px no-repeat;
+      display: inline-block;
+      float: left; }
+    .login p a {
+      color: blue;
+      display: inline-block;
+      float: right;
+      padding: 0 10px; }
+      .login p a:nth-of-type(1) {
+        border-left: 1px solid #ccc; }
+  .login .loginning {
+    margin: 0 auto;
+    width: 374px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    color: white;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    font-size: 18px;
+    cursor: pointer;
+    font-weight: 400;
+    background: url(../images/register/ui-p_6b80ebe114.png) -24px -339px no-repeat; }
+  .login h4 {
+    text-align: left;
+    margin: 0 auto;
+    width: 370px;
+    font-size: 10px;
+    font-weight: 400;
+    padding-top: 15px;
+    border-top: 1px solid #ccc; }
+    .login h4 span {
+      padding-left: 100px;
+      display: inline-block; }
+    .login h4 a {
+      display: inline-block;
+      width: 20px;
+      height: 17px;
+      margin-left: 10px; }
+      .login h4 a:nth-of-type(1) {
+        background: url(../images/login/icons_86423c6fdc.png) 1px 0px no-repeat; }
+      .login h4 a:nth-of-type(2) {
+        background: url(../images/login/icons_86423c6fdc.png) -31px 0px no-repeat; }
+      .login h4 a:nth-of-type(3) {
+        background: url(../images/login/icons_86423c6fdc.png) -64px 0px no-repeat; }
+
+.bottom .copyright {
+  text-align: center;
+  font-size: 10px;
+  line-height: 40px; }
+
+.bottom .copyright a {
+  display: inline;
+  border-left: 1px solid #ccc;
+  color: blue;
+  padding-left: 10px;
+  padding-right: 10px; }
+
+.bottom .icp {
+  text-align: center;
+  font-size: 10px;
+  color: blue;
+  margin-bottom: 50px; }

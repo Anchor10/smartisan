@@ -1,0 +1,204 @@
+* {
+  margin: 0;
+  padding: 0; }
+
+.clear:after {
+  content: ".";
+  clear: both;
+  display: block;
+  height: 0;
+  overflow: hidden;
+  visibility: hidden; }
+
+.clear {
+  zoom: 1; }
+
+body {
+  font-size: 14px;
+  color: #666;
+  background: url(../images/register/bg_9b9dcb65ff.png) repeat; }
+
+li {
+  list-style: none; }
+
+a {
+  text-decoration: none;
+  display: block; }
+
+span {
+  display: block; }
+
+.table {
+  width: 450px;
+  height: 533px;
+  border: 1px solid #ccc;
+  margin: 140px auto;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 1px 5px 2px 2px #ccc; }
+
+.table h4 {
+  height: 62px;
+  width: 450px;
+  border: 1px solid #ccc;
+  text-align: center;
+  line-height: 62px;
+  font-size: 20px;
+  background: url(../images/register/dialog-radius-top-bg_f21c89014d.png) repeat; }
+
+.table .regis {
+  background: white;
+  padding: 30px 40px 24px 40px; }
+
+.table .regis .input {
+  width: 370px;
+  height: 48px;
+  border: 1px solid #ccc;
+  margin: 0 auto;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  overflow: hidden;
+  opacity: 0.7;
+  position: relative; }
+
+.table .regis .input p {
+  position: absolute;
+  background: #D16D62;
+  height: 30px;
+  line-height: 30px;
+  border-radius: 5px;
+  padding: 0 5px;
+  top: 8px;
+  right: 0;
+  color: white;
+  display: none; }
+
+.table .regis .input .check_error {
+  right: 160px; }
+
+.table .regis .input:hover {
+  opacity: 1; }
+
+.table .regis .input .i1, .i2, .i3, .i4 {
+  display: block;
+  width: 46px;
+  height: 46px;
+  float: left;
+  border: 1px solid #ccc; }
+
+.table .regis .input .i1 {
+  background: url(../images/register/dialog-input-icons_e7e327a2b8.png) 0px 0px no-repeat; }
+
+.table .regis .input .i2 {
+  background: url(../images/register/dialog-input-icons_e7e327a2b8.png) -144px 0px no-repeat; }
+
+.table .regis .input .i3 {
+  background: url(../images/register/dialog-input-icons_e7e327a2b8.png) -48px 0px no-repeat; }
+
+.table .regis .input .i4 {
+  background: url(../images/register/dialog-input-icons_e7e327a2b8.png) -97px 0px no-repeat; }
+
+.table .regis .input .area_code {
+  float: left;
+  height: 48px;
+  line-height: 48px;
+  font-size: 20px; }
+
+.table .regis .input input {
+  float: left;
+  display: block;
+  height: 46px;
+  border: none;
+  font-size: 16px;
+  text-indent: 10px;
+  outline: none; }
+
+.table .regis .input:nth-of-type(1) input {
+  width: 171px; }
+
+.table .regis .input:nth-of-type(2) input {
+  width: 158px; }
+
+.table .regis .input:nth-of-type(3) input, .table .regis .input:nth-of-type(4) input {
+  width: 320px; }
+
+.table .regis .input .check {
+  width: 150px;
+  height: 46px;
+  border: 1px solid #ccc;
+  float: right;
+  text-align: center;
+  line-height: 46px;
+  font-size: 18px;
+  cursor: pointer;
+  border-radius: 5px;
+  background: url(../images/register/dialog-radius-top-bg_f21c89014d.png) repeat; }
+
+.table .regis .input .area {
+  float: right;
+  width: 50px;
+  height: 46px;
+  font-size: 18px;
+  line-height: 46px;
+  padding-right: 20px;
+  background: url(../images/register/change.png) 43px center no-repeat; }
+
+.table .regis .agree {
+  height: 20px;
+  font-size: 10px;
+  vertical-align: center;
+  margin-bottom: 30px; }
+
+.table .regis .agree a {
+  display: inline-block; }
+
+.table .regis .agree span {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: url(../images/register/agree.png) no-repeat; }
+
+.table .regis .registering {
+  display: block;
+  width: 374px;
+  height: 50px;
+  border-radius: 10px;
+  outline: none;
+  line-height: 50px;
+  text-align: center;
+  color: white;
+  margin-bottom: 30px;
+  font-size: 18px;
+  cursor: pointer;
+  background: url(../images/register/ui-p_6b80ebe114.png) -24px -339px no-repeat; }
+
+.table .regis .have {
+  width: 368px;
+  font-size: 10px;
+  padding-top: 14px;
+  border-top: 1px solid #ccc;
+  display: inline-block;
+  text-align: center;
+  color: #ccc; }
+
+.table .regis .have span {
+  color: blue;
+  display: inline-block; }
+
+.bottom .copyright {
+  text-align: center;
+  font-size: 10px;
+  line-height: 40px; }
+
+.bottom .copyright a {
+  display: inline;
+  border-left: 1px solid #ccc;
+  color: blue;
+  padding-left: 10px;
+  padding-right: 10px; }
+
+.bottom .icp {
+  text-align: center;
+  font-size: 10px;
+  color: blue;
+  margin-bottom: 50px; }

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>购物清单</title>
+		<link rel="stylesheet" href="css/shoppingList.min.css">
+		<link rel="stylesheet" type="text/css" href="css/head.css">
+		<script type = "text/javascript" src = "js/require.js" async = "true" defer data-main = "js/main"></script>
+	</head>
+	<body>
+		<div class="header">
+			<div class="container clear">
+				<h1 class="nav_logo"><a href="index.html" title="锤子科技官网"></a></h1>
+				<ul class="nav_list clear">
+					<li><a href="">官方论坛</a></li>
+					<li><a href="">应用下载</a></li>
+					<li><a href="">欢喜云</a></li>
+					<li><a href="">Smartisan OS</a></li>
+					<li><a href="">坚果Pro</a></li>
+					<li><a href="">坚果Pro2</a></li>
+					<li><a href="index.html">在线商城</a></li>
+				</ul>
+				<ul class="nav_aside clear">
+					<li><a href="login.html"></a></li>
+					<li id="shopCart"><a href="shoppingList.html"></a><span class="cart">0</span>
+						<ul id="show_Cart">
+							<!-- 加载购物车里的商品 -->
+							
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<!-- <div id="html_1">
+			<iframe align="center" width=100% height="100" src="head.html" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no">
+			</iframe>
+		</div> -->
+		<div class="shopCart">
+			<h1>购物清单</h1>
+
+			<!-- 如果没有加入购物车的商品 -->
+			<div class="picture">
+				<p>您的购物车中还没有商品</p>
+				<a href="goodsList.html" class="buy">现在选购</a>
+			</div>
+
+			<!-- 如果购物车里有商品 -->
+			<div class="lists">
+				<div class="info clear">
+					<span>商品信息</span><span>操作</span><span>小计</span><span>数量</span><span>单价</span>
+				</div>
+				<ul class="info_lists">
+					<!-- <li class="info_goods">
+						<ul class="clear">
+							<li>
+								<div class="picGoods">
+									<img src="${res[arr[i].id].img}">
+								</div>
+								<div class="detaGoods">
+									<h4>${res[arr[i].id].title}</h4>
+									<p>${res[arr[i].id].decri}</p>
+								</div>
+							</li>
+							<li><span>*</span></li>
+							<li>￥ 99.00</li>
+							<li><span class="addSub">-</span><b>1</b><span class="addSub">+</span></li>
+							<li>￥ 99.00</li>
+						</ul>
+					</li> -->
+				</ul>
+			</div>
+		</div>
+
+
+
+		<div id="html_2">
+			<iframe align="center" width=100% height="353" src="foot.html" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no">
+			</iframe>
+		</div>
+	</body>
+</html>
